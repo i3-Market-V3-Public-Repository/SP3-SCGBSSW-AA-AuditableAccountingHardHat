@@ -1,0 +1,131 @@
+{
+  "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "prevRootHash",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "currentRootHash",
+          "type": "uint256"
+        }
+      ],
+      "name": "newRegistry",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "currentRoot",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_newRoot",
+          "type": "uint256"
+        }
+      ],
+      "name": "setNewRegistry",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xf9f4733b5d43119d854d7699f647d7b6c69ac55abd37aaa05565c6a213f4c8bf",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "transactionIndex": 0,
+    "gasUsed": "176051",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0xbe0e3b09b2f3cf10f7fea33a1408b65700b08295d473519e907ad0e8baf9560b",
+    "transactionHash": "0xf9f4733b5d43119d854d7699f647d7b6c69ac55abd37aaa05565c6a213f4c8bf",
+    "logs": [],
+    "blockNumber": 1,
+    "cumulativeGasUsed": "176051",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "solcInputHash": "d4fd3e106d60324c6c71be3dd8c2f8b5",
+  "metadata": "{\"compiler\":{\"version\":\"0.7.3+commit.9bfce1f6\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"prevRootHash\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"currentRootHash\",\"type\":\"uint256\"}],\"name\":\"newRegistry\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"currentRoot\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_newRoot\",\"type\":\"uint256\"}],\"name\":\"setNewRegistry\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/AuditableAccounting.sol\":\"AuditableAccounting\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/AuditableAccounting.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity >=0.4.22 <0.8.0;\\n\\ncontract AuditableAccounting {\\n  uint256 public currentRoot;\\n  address public owner;\\n\\n\\n  event newRegistry(uint256 prevRootHash, uint256 currentRootHash);\\n\\n  modifier onlyOwner(){ require(msg.sender == owner); _; }\\n\\n  constructor() { owner = msg.sender; }\\n\\n  function setNewRegistry(uint256 _newRoot) public onlyOwner {\\n    emit newRegistry(currentRoot, _newRoot);\\n    currentRoot = _newRoot;\\n  }\\n}\\n\\n\\n\\n\",\"keccak256\":\"0xd73a8f34c636e06e92cf44ca724804808e7d5115bb5b771ed0180c918b22bbf6\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b5033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506101cd806100616000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c806363875cc7146100465780638da5cb5b14610074578063fdab463d146100a8575b600080fd5b6100726004803603602081101561005c57600080fd5b81019080803590602001909291905050506100c6565b005b61007c61016b565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100b0610191565b6040518082815260200191505060405180910390f35b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461012057600080fd5b7f154778946982c0f3e4d5157de9ceb77a9a9af03db02343fd49e26e8dc3eff18b60005482604051808381526020018281526020019250505060405180910390a18060008190555050565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000548156fea2646970667358221220874368a5bbc79ac11ca6f78533ec665e4f60ec75cb5913f05e3a6372c6c3e3e464736f6c63430007030033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c806363875cc7146100465780638da5cb5b14610074578063fdab463d146100a8575b600080fd5b6100726004803603602081101561005c57600080fd5b81019080803590602001909291905050506100c6565b005b61007c61016b565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100b0610191565b6040518082815260200191505060405180910390f35b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461012057600080fd5b7f154778946982c0f3e4d5157de9ceb77a9a9af03db02343fd49e26e8dc3eff18b60005482604051808381526020018281526020019250505060405180910390a18060008190555050565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000548156fea2646970667358221220874368a5bbc79ac11ca6f78533ec665e4f60ec75cb5913f05e3a6372c6c3e3e464736f6c63430007030033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 3,
+        "contract": "contracts/AuditableAccounting.sol:AuditableAccounting",
+        "label": "currentRoot",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 5,
+        "contract": "contracts/AuditableAccounting.sol:AuditableAccounting",
+        "label": "owner",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_address"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}

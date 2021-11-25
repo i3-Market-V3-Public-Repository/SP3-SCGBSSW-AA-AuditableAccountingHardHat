@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/AuditableAccounting.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity >=0.4.22 <0.8.0;\n\ncontract AuditableAccounting {\n  uint256 public currentRoot;\n  address public owner;\n\n\n  event newRegistry(uint256 prevRootHash, uint256 currentRootHash);\n\n  modifier onlyOwner(){ require(msg.sender == owner, \"sender must be the contract owner\"); _; }\n\n  constructor() { owner = msg.sender; }\n\n  function setNewRegistry(uint256 _newRoot) public onlyOwner {\n    emit newRegistry(currentRoot, _newRoot);\n    currentRoot = _newRoot;\n  }\n}\n\n\n\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
